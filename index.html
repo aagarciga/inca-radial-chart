@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Static Template</title>
+
+    <style>
+      .canvas-container {
+        width: 700px;
+        height: auto;
+        margin: auto;
+      }
+      #myChart {
+        outline: thin dotted red;
+        padding: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>This is a static radial chart</h1>
+
+    <div class="canvas-container">
+      <canvas id="myChart"></canvas>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+
+    <script>
+      var ctx = document.getElementById("myChart").getContext("2d");
+      var chart = new Chart(ctx, {
+        // The type of chart we want to create
+        type: "radar",
+
+        // The data for our dataset
+        data: {
+          labels: [
+            "Stress",
+            "Smoking",
+            "Overweight",
+            "Hypertension",
+            "Alcohol"
+          ],
+          datasets: [
+            {
+              label: "Oct 15, 2020",
+              backgroundColor: "rgba(26, 179, 148, 0.7)",
+              borderColor: "rgba(26, 179, 148, 0.8)",
+              data: [9, 5, 2, 7, 3]
+            },
+            {
+              label: "Oct 11, 2020",
+              backgroundColor: "rgba(179, 26, 57, 0.4)",
+              borderColor: "rgba(179, 26, 57, 0.6)",
+              data: [8, 5, 10, 1, 4]
+            }
+          ]
+        },
+
+        // Configuration options go here
+        options: {}
+      });
+    </script>
+  </body>
+</html>
