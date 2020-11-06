@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Weight Chart</title>
+
+    <style>
+      .canvas-container {
+        width: 350px;
+        height: 100px;
+        /*height: 10px;*/
+        margin: auto;
+      }
+      #myChart {
+        outline: thin dotted red;
+        padding: 10px;
+        /*height: 50px;*/
+      }
+    </style>
+  </head>
+  <body>
+    <h1>This is a static lineal chart</h1>
+
+    <div class="canvas-container">
+      <canvas id="myChart" height="150"></canvas>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+
+    <script>
+      var ctx = document.getElementById("myChart").getContext("2d");
+      var chart = new Chart(ctx, {
+        // The type of chart we want to create
+        type: "line",
+
+        // The data for our dataset
+        data: {
+          labels: [
+            "Jan",
+            "Feb",
+            "Mar",
+            "Apr",
+            "May",
+            "Jun",
+            "Jul",
+            "Aug",
+            "Sep",
+            "Oct",
+            "Nov",
+            "Dec"
+          ],
+          datasets: [
+            {
+              label: "Systolic (mmHg)",
+              backgroundColor: "rgba(26, 179, 148, 0.7)",
+              borderColor: "rgba(26, 179, 148, 0.8)",
+              fill: false,
+              lineTension: 0,
+              data: [
+                120,
+                110,
+                120,
+                100,
+                120,
+                120,
+                90,
+                110,
+                undefined,
+                120,
+                120,
+                110
+              ]
+            },
+            {
+              label: "Diastolic (mmHg)",
+              backgroundColor: "#0F4C5C",
+              borderColor: "#0F4C5C",
+              fill: false,
+              lineTension: 0,
+              data: [80, 70, 80, 60, 80, 80, 50, 70, undefined, 80, 80, 70]
+            }
+          ]
+        },
+
+        // Configuration options go here
+        options: {
+          title: {
+            display: true,
+            text: "Blood Preasure",
+            fontFamily: "Open Sans",
+            alignsiiii: "start"
+          },
+          fontFamily: "Open Sans",
+          legend: {
+            display: true,
+            position: "bottom",
+            fullWidth: true,
+
+            labels: {
+              fontColor: "#787878",
+              fontSize: 10
+            }
+          }
+        }
+      });
+    </script>
+  </body>
+</html>
